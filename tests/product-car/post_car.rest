@@ -1,0 +1,11 @@
+POST {{baseUrl}}/products 
+Content-Type: application/json
+
+{
+  "name": "New Model",
+  "color": "Black",
+  "gas": "electric",
+  "year": 2023,
+  "description": "New model of year",
+  "price": 32000
+}

@@ -1,0 +1,5 @@
+GET {{baseUrl}}/products
+
+###
+
+GET {{baseUrl}}/products/6441fa21fedd85c62f311b40

@@ -1,0 +1,17 @@
+# @name createProduct
+POST {{baseUrl}}/products 
+Content-Type: application/json
+
+{
+  "name": "New Model TO DELETE",
+  "color": "Black",
+  "gas": "electric",
+  "year": 2023,
+  "description": "New model of year",
+  "price": 32000
+}
+
+###
+@productId = {{createProduct.response.body.$._id}}
+
+DELETE {{baseUrl}}/products/{{productId}}

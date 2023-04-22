@@ -1,0 +1,14 @@
+# @name loginUser
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "ricky@flowers.com",
+  "password": "password123"
+}
+
+###
+@token = {{loginUser.response.body.$.token}}
+
+GET {{baseUrl}}/orders
+Authorization: Bearer {{token}}
