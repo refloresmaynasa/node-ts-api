@@ -1,0 +1,22 @@
+# @name loginUser
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "ricky@flowers.com",
+  "password": "password123"
+}
+
+###
+@token = {{loginUser.response.body.$.token}}
+
+POST {{baseUrl}}/storage/upload-file
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file-upload"; filename="png-test.png"
+Content-Type: image/png
+
+< ../resources/png-test.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

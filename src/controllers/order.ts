@@ -1,11 +1,7 @@
-import { Request, Response } from "express";
-import { JwtPayload } from "jsonwebtoken";
+import { Response } from "express";
 import { handleHttp } from "../common/error.handler";
+import { RequestExtended } from "../interfaces/requestExtended";
 import { getOrdersData } from "../services/orders";
-
-interface RequestExtended extends Request {
-  user?: string | JwtPayload;
-}
 
 const getOrders = async (req: RequestExtended, res: Response) => {
   try {
