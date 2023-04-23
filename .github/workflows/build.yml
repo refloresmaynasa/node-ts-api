@@ -1,0 +1,32 @@
+name: Build the Node.js project
+run-name: ${{ github.actor }} is running GitHub Actions
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Check Node version
+      run: node --version
+    - name: Check NPM version
+      run: npm --version
+    - name: NPM Clean and Install
+      run: npm ci
+    - name: NPM Build the solution
+      run: npm run build --if-present
