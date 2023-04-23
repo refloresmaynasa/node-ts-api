@@ -1,6 +1,7 @@
-node_modules
-mongodb_data
+node_modules/
+mongodb_data/
 storage/**
 !storage/.gitkeep
 dist/
+package-lock.json
 .env
